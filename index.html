@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbearia 1994 – RS · BR</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="intro" aria-hidden="true">
+      <div class="intro-rs-br">
+        <span>RS</span>
+        <span>BR</span>
+      </div>
+      <div class="intro-titulo">Barbearia</div>
+      <div class="intro-numero">
+        19<span
+          style="
+            color: var(--dourado);
+            font-size: 0.35em;
+            vertical-align: middle;
+            letter-spacing: 0;
+          "
+          >★</span
+        >94
+      </div>
+      <div class="intro-estrela">★</div>
+      <div class="intro-linha"></div>
+    </div>
+    <nav>
+      <div class="nav-logo">1<span>9</span>9<span>4</span></div>
+      <ul class="nav-links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#agendar">Agendar</a></li>
+      </ul>
+      <button
+        class="nav-cta"
+        onclick="
+          document
+            .getElementById('agendar')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        Agendar agora
+      </button>
+    </nav>
+
+    <section id="hero">
+      <div class="hero-tag">Desde 1994 · Rio Grande do Sul</div>
+      <div class="hero-titulo">Barbearia</div>
+      <div class="hero-numero">19<span class="estrela">★</span>94</div>
+      <div class="hero-rs-br">
+        <span class="badge">RS</span>
+        <div class="divisor"></div>
+        <span class="badge">BR</span>
+      </div>
+      <div class="hero-navalhas">
+        <span>🪒</span>
+        <span>🪒</span>
+      </div>
+      <p class="hero-subtitulo">
+        Tradição, precisão e estilo.<br />
+        O corte certo para o homem certo.
+      </p>
+      <button
+        class="btn-agendar"
+        onclick="
+          document
+            .getElementById('agendar')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        <span>Agendar seu horário</span>
+      </button>
+    </section>
+
+    <div class="divisor-dourado"></div>
+
+    <div id="servicos">
+      <div class="inner">
+        <div class="secao-header">
+          <div class="secao-tag">O que fazemos</div>
+          <div class="secao-titulo">Serviços</div>
+        </div>
+        <div class="grade-servicos">
+          <div class="card-servico">
+            <span class="servico-icone">✂️</span>
+            <div class="servico-nome">Corte</div>
+            <div class="servico-desc">
+              Clássico ou moderno, na tesoura ou na máquina
+            </div>
+            <div class="servico-rodape">
+              <span class="servico-preco">R$ 40</span>
+              <span class="servico-tempo">30 MIN</span>
+            </div>
+          </div>
+          <div class="card-servico">
+            <span class="servico-icone">🪒</span>
+            <div class="servico-nome">Barba</div>
+            <div class="servico-desc">Navalha quente, acabamento perfeito</div>
+            <div class="servico-rodape">
+              <span class="servico-preco">R$ 40</span>
+              <span class="servico-tempo">20 MIN</span>
+            </div>
+          </div>
+          <div class="card-servico">
+            <span class="servico-icone">⚡</span>
+            <div class="servico-nome">Corte + Barba</div>
+            <div class="servico-desc">O combo completo do homem 1994</div>
+            <div class="servico-rodape">
+              <span class="servico-preco">R$ 70</span>
+              <span class="servico-tempo">50 MIN</span>
+            </div>
+          </div>
+          <div class="card-servico">
+            <span class="servico-icone">💧</span>
+            <div class="servico-nome">Hidratação</div>
+            <div class="servico-desc">
+              Tratamento profissional para cabelo e barba
+            </div>
+            <div class="servico-rodape">
+              <span class="servico-preco">R$ 45</span>
+              <span class="servico-tempo">40 MIN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divisor-dourado"></div>
+
+    <div id="agendar">
+      <div class="secao-header">
+        <div class="secao-tag">Marque seu horário</div>
+        <div class="secao-titulo">Agendamento</div>
+      </div>
+
+      <div class="progresso">
+        <div class="bolinha ativo" id="b1">1</div>
+        <div class="linha-prog" id="lp12"></div>
+        <div class="bolinha" id="b2">2</div>
+        <div class="linha-prog" id="lp23"></div>
+        <div class="bolinha" id="b3">3</div>
+        <div class="linha-prog" id="lp34"></div>
+        <div class="bolinha" id="b4">4</div>
+      </div>
+
+      <div id="p1" class="passo visivel">
+        <div class="passo-titulo">Serviço</div>
+        <div class="passo-sub">Escolha o que você quer hoje</div>
+        <div class="grade-opcoes">
+          <div class="opcao" onclick="selServico(this, 'Corte', '30 min', 35)">
+            <div class="opcao-nome">✂️ Corte</div>
+            <div class="opcao-meta">30 minutos</div>
+            <div class="opcao-preco">R$ 40</div>
+          </div>
+          <div class="opcao" onclick="selServico(this, 'Barba', '20 min', 25)">
+            <div class="opcao-nome">🪒 Barba</div>
+            <div class="opcao-meta">20 minutos</div>
+            <div class="opcao-preco">R$ 40</div>
+          </div>
+          <div
+            class="opcao"
+            onclick="selServico(this, 'Corte + Barba', '50 min', 55)"
+          >
+            <div class="opcao-nome">⚡ Corte + Barba</div>
+            <div class="opcao-meta">50 minutos</div>
+            <div class="opcao-preco">R$ 70</div>
+          </div>
+          <div
+            class="opcao"
+            onclick="selServico(this, 'Hidratação', '40 min', 45)"
+          >
+            <div class="opcao-nome">💧 Hidratação</div>
+            <div class="opcao-meta">40 minutos</div>
+            <div class="opcao-preco">R$ 45</div>
+          </div>
+        </div>
+        <div class="botoes">
+          <button
+            class="btn-nav btn-primario"
+            id="btn1"
+            onclick="ir(2)"
+            disabled
+          >
+            Próximo →
+          </button>
+        </div>
+      </div>
+
+      <div id="p2" class="passo">
+        <div class="passo-titulo">Barbeiro</div>
+        <div class="passo-sub">Com quem você quer ir hoje?</div>
+        <div class="grade-opcoes">
+          <div class="opcao" onclick="selBarbeiro(this, 'Carlos')">
+            <div class="avatar">CA</div>
+            <div class="opcao-nome">Carlos</div>
+            <div class="opcao-meta">Corte clássico</div>
+          </div>
+          <div class="opcao" onclick="selBarbeiro(this, 'Diego')">
+            <div class="avatar">DI</div>
+            <div class="opcao-nome">Diego</div>
+            <div class="opcao-meta">Barba & fade</div>
+          </div>
+          <div class="opcao" onclick="selBarbeiro(this, 'Rafael')">
+            <div class="avatar">RA</div>
+            <div class="opcao-nome">Rafael</div>
+            <div class="opcao-meta">Degradê</div>
+          </div>
+          <div class="opcao" onclick="selBarbeiro(this, 'Sem preferência')">
+            <div class="avatar" style="color: var(--cinza-claro)">?</div>
+            <div class="opcao-nome">Qualquer</div>
+            <div class="opcao-meta">Sem preferência</div>
+          </div>
+        </div>
+        <div class="botoes">
+          <button class="btn-nav btn-sec" onclick="ir(1)">← Voltar</button>
+          <button
+            class="btn-nav btn-primario"
+            id="btn2"
+            onclick="ir(3)"
+            disabled
+          >
+            Próximo →
+          </button>
+        </div>
+      </div>
+
+      <div id="p3" class="passo">
+        <div class="passo-titulo">Data & Hora</div>
+        <div class="passo-sub">Escolha quando nos visitar</div>
+
+        <div class="cal-header">
+          <button class="btn-mes" onclick="mudarMes(-1)">‹</button>
+          <span class="cal-mes-nome" id="calNome"></span>
+          <button class="btn-mes" onclick="mudarMes(1)">›</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+
+        <div
+          style="
+            font-family: &quot;Oswald&quot;, sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--cinza-claro);
+            margin-bottom: 12px;
+          "
+        >
+          HORÁRIOS DISPONÍVEIS
+        </div>
+        <div class="grade-horarios" id="gradeHorarios"></div>
+
+        <div class="botoes">
+          <button class="btn-nav btn-sec" onclick="ir(2)">← Voltar</button>
+          <button
+            class="btn-nav btn-primario"
+            id="btn3"
+            onclick="ir(4)"
+            disabled
+          >
+            Próximo →
+          </button>
+        </div>
+      </div>
+
+      <div id="p4" class="passo">
+        <div class="passo-titulo">Confirmação</div>
+        <div class="passo-sub">Quase lá — só seus dados</div>
+
+        <div class="campo-grupo">
+          <label class="campo-label">Nome completo</label>
+          <input
+            class="campo-input"
+            type="text"
+            id="fNome"
+            placeholder="João da Silva"
+            oninput="chkP4()"
+          />
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">WhatsApp</label>
+          <input
+            class="campo-input"
+            type="tel"
+            id="fTel"
+            placeholder="(51) 99999-9999"
+            oninput="chkP4()"
+          />
+        </div>
+
+        <div class="resumo-card">
+          <div class="resumo-header">Resumo do agendamento</div>
+          <div class="resumo-linha">
+            <span class="resumo-chave">Serviço</span
+            ><span class="resumo-valor" id="rServico">—</span>
+          </div>
+          <div class="resumo-linha">
+            <span class="resumo-chave">Barbeiro</span
+            ><span class="resumo-valor" id="rBarbeiro">—</span>
+          </div>
+          <div class="resumo-linha">
+            <span class="resumo-chave">Data</span
+            ><span class="resumo-valor" id="rData">—</span>
+          </div>
+          <div class="resumo-linha">
+            <span class="resumo-chave">Horário</span
+            ><span class="resumo-valor" id="rHorario">—</span>
+          </div>
+          <div class="resumo-linha">
+            <span class="resumo-chave">Total</span
+            ><span class="resumo-valor preco" id="rPreco">—</span>
+          </div>
+        </div>
+
+        <div class="botoes">
+          <button class="btn-nav btn-sec" onclick="ir(3)">← Voltar</button>
+          <button
+            class="btn-nav btn-primario"
+            id="btn4"
+            onclick="confirmar()"
+            disabled
+          >
+            Confirmar ✓
+          </button>
+        </div>
+      </div>
+
+      <div id="pSucesso" class="passo">
+        <div class="sucesso">
+          <div class="sucesso-titulo">Confirmado!</div>
+          <div class="sucesso-sub">
+            Você receberá uma mensagem no WhatsApp.<br />Até lá,
+            <strong id="sNome"></strong>!
+          </div>
+          <div class="codigo" id="sCodigo"></div>
+          <p
+            style="
+              font-family: &quot;Crimson Text&quot;, serif;
+              font-style: italic;
+              font-size: 15px;
+              color: var(--cinza-claro);
+            "
+            id="sDetalhe"
+          ></p>
+          <br />
+          <button
+            class="btn-nav btn-sec"
+            style="max-width: 200px; margin: 16px auto 0; display: block"
+            onclick="reiniciar()"
+          >
+            Novo agendamento
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divisor-dourado"></div>
+
+    <footer>
+      <div class="footer-logo">Barbearia <span>1994</span></div>
+      <div class="footer-sub">Tradição gaúcha desde 1994</div>
+      <div class="footer-badges">
+        <span class="footer-badge">RS</span>
+        <span class="footer-badge">★</span>
+        <span class="footer-badge">BR</span>
+      </div>
+      <div class="footer-copy">
+        © 2026 Barbearia 1994 — Todos os direitos reservados
+      </div>
+    </footer>
+
+    <script>
+      const ag = { servico: null, barbeiro: null, data: null, horario: null };
+      let mes = new Date().getMonth(),
+        ano = new Date().getFullYear();
+      const hoje = new Date();
+      const meses = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro",
+      ];
+      const diasSem = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+      const horariosOcupados = ["09:00", "11:30", "14:00", "16:30"];
+      const todosHorarios = [
+        "08:00",
+        "08:30",
+        "09:00",
+        "09:30",
+        "10:00",
+        "10:30",
+        "11:00",
+        "11:30",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "16:00",
+        "16:30",
+        "17:00",
+        "17:30",
+        "18:00",
+      ];
+
+      function ir(n) {
+        document
+          .querySelectorAll(".passo")
+          .forEach((p) => p.classList.remove("visivel"));
+        document.getElementById("p" + n).classList.add("visivel");
+        atualizarProg(n);
+        if (n === 3) renderCal();
+        if (n === 4) atualizarResumo();
+      }
+
+      function atualizarProg(ativo) {
+        for (let i = 1; i <= 4; i++) {
+          const b = document.getElementById("b" + i);
+          b.classList.remove("ativo", "feito");
+          if (i < ativo) {
+            b.classList.add("feito");
+            b.textContent = "✓";
+          } else if (i === ativo) {
+            b.classList.add("ativo");
+            b.textContent = i;
+          } else b.textContent = i;
+        }
+        [
+          [1, 2],
+          [2, 3],
+          [3, 4],
+        ].forEach(([a, b]) => {
+          document
+            .getElementById("lp" + a + b)
+            .classList.toggle("feita", a < ativo);
+        });
+      }
+
+      function selServico(el, nome, dur, preco) {
+        document
+          .querySelectorAll(".passo#p1 .opcao")
+          .forEach((c) => c.classList.remove("sel"));
+        el.classList.add("sel");
+        ag.servico = { nome, dur, preco };
+        document.getElementById("btn1").disabled = false;
+      }
+
+      function selBarbeiro(el, nome) {
+        document
+          .querySelectorAll(".passo#p2 .opcao")
+          .forEach((c) => c.classList.remove("sel"));
+        el.classList.add("sel");
+        ag.barbeiro = nome;
+        document.getElementById("btn2").disabled = false;
+      }
+
+      function mudarMes(d) {
+        mes += d;
+        if (mes > 11) {
+          mes = 0;
+          ano++;
+        }
+        if (mes < 0) {
+          mes = 11;
+          ano--;
+        }
+        renderCal();
+      }
+
+      function renderCal() {
+        document.getElementById("calNome").textContent = meses[mes] + " " + ano;
+        const grid = document.getElementById("calGrid");
+        grid.innerHTML = diasSem
+          .map((d) => `<div class="cal-label">${d}</div>`)
+          .join("");
+        const primeiro = new Date(ano, mes, 1).getDay();
+        const total = new Date(ano, mes + 1, 0).getDate();
+        for (let i = 0; i < primeiro; i++) grid.innerHTML += "<div></div>";
+        for (let d = 1; d <= total; d++) {
+          const dt = new Date(ano, mes, d);
+          const passado =
+            dt < new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+          const domingo = dt.getDay() === 0;
+          const dataStr = d + " de " + meses[mes] + " de " + ano;
+          const ehHoje =
+            d === hoje.getDate() &&
+            mes === hoje.getMonth() &&
+            ano === hoje.getFullYear();
+          let cls = "dia";
+          if (ehHoje) cls += " hoje";
+          if (ag.data === dataStr) cls += " sel";
+          grid.innerHTML += `<button class="${cls}" ${passado || domingo ? "disabled" : ""} onclick="selData('${dataStr}')">${d}</button>`;
+        }
+        renderHorarios();
+      }
+
+      function selData(ds) {
+        ag.data = ds;
+        ag.horario = null;
+        renderCal();
+        document.getElementById("btn3").disabled = true;
+      }
+
+      function renderHorarios() {
+        const g = document.getElementById("gradeHorarios");
+        g.innerHTML = todosHorarios
+          .map((h) => {
+            const oc = horariosOcupados.includes(h);
+            const sl = ag.horario === h;
+            return `<div class="horario${oc ? " ocupado" : ""}${sl ? " sel" : ""}" ${oc ? "" : ""} onclick="${oc ? "" : "selHorario('" + h + "')"}">${h}</div>`;
+          })
+          .join("");
+      }
+
+      function selHorario(h) {
+        ag.horario = h;
+        renderHorarios();
+        if (ag.data) document.getElementById("btn3").disabled = false;
+      }
+
+      function atualizarResumo() {
+        document.getElementById("rServico").textContent = ag.servico
+          ? ag.servico.nome + " (" + ag.servico.dur + ")"
+          : "—";
+        document.getElementById("rBarbeiro").textContent = ag.barbeiro || "—";
+        document.getElementById("rData").textContent = ag.data || "—";
+        document.getElementById("rHorario").textContent = ag.horario || "—";
+        document.getElementById("rPreco").textContent = ag.servico
+          ? "R$ " + ag.servico.preco
+          : "—";
+      }
+
+      function chkP4() {
+        const n = document.getElementById("fNome").value.trim();
+        const t = document.getElementById("fTel").value.trim();
+        document.getElementById("btn4").disabled = !(
+          n.length >= 3 && t.length >= 8
+        );
+      }
+
+      function confirmar() {
+        const nome = document.getElementById("fNome").value.trim();
+        const cod = "B94-" + Math.floor(Math.random() * 9000 + 1000);
+        document.getElementById("sNome").textContent = nome.split(" ")[0];
+        document.getElementById("sCodigo").textContent = cod;
+        document.getElementById("sDetalhe").textContent =
+          ag.servico.nome +
+          " · " +
+          ag.barbeiro +
+          " · " +
+          ag.data +
+          " às " +
+          ag.horario;
+        document
+          .querySelectorAll(".passo")
+          .forEach((p) => p.classList.remove("visivel"));
+        document.getElementById("pSucesso").classList.add("visivel");
+        for (let i = 1; i <= 4; i++) {
+          const b = document.getElementById("b" + i);
+          b.classList.add("feito");
+          b.classList.remove("ativo");
+          b.textContent = "✓";
+        }
+        document
+          .querySelectorAll(".linha-prog")
+          .forEach((l) => l.classList.add("feita"));
+      }
+
+      function reiniciar() {
+        ag.servico = null;
+        ag.barbeiro = null;
+        ag.data = null;
+        ag.horario = null;
+        document.getElementById("fNome").value = "";
+        document.getElementById("fTel").value = "";
+        document
+          .querySelectorAll(".opcao.sel")
+          .forEach((e) => e.classList.remove("sel"));
+        document.getElementById("btn1").disabled = true;
+        document.getElementById("btn2").disabled = true;
+        ir(1);
+      }
+
+      renderCal();
+    </script>
+  </body>
+</html>
